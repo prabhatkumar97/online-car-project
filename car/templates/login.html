@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+{% load static %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+body
+ {
+  background:url({% static 'images/banner5.jpg' %});
+
+  background-repeat:no-repeat;
+
+  background-position:center;
+
+  }
+
+  form{
+  margin:40px;
+  font-weight:bold;
+  color:white;
+  }
+
+div.transparentbox
+
+  {
+
+  width:30%;
+
+  height:250px;
+  border-radius:8px;
+  margin:15% 30% 40% 40%;
+  background-color:black;
+
+  border:1px solid;
+
+  border-color:#CD853F;
+
+  opacity:0.6;
+
+  filter:alpha(opacity=50);
+
+  }
+
+  div.transparentbox1
+
+  {
+
+  opacity:0.6;
+
+  filter:alpha(opacity=60);
+
+  }
+
+div.transparentbox lable
+
+  {
+  margin-top:10%;
+  margin-left:31%;
+  font-weight:bold;
+  font-Size:60px;
+  font-color:white;
+  font-family : 'Monotype Corsiva' ;
+  color : white;
+  font-weight : bold;
+  text-align:center;
+  }
+div.transparentbox1 p
+
+  {
+  margin-top:10%;
+  margin-left:31%;
+  font-weight:bold;
+  font-Size:60px;
+  font-family : 'Monotype Corsiva' ;
+  color : #E6120E;
+  font-weight : bold;
+  text-align:center;
+  }
+
+#circle {
+    background: green;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+#halfCircleBottom{
+     height:75px;
+     width:150px;
+     border-radius: 0 0 90px 90px;
+     background:darkslategrey;
+     margin:0px;
+}
+
+#halfCircle{
+     height:75px;
+     width:150px;
+     border-radius: 90px 90px 0 0;
+     background:green;
+     margin:0px;
+}
+img{
+float:center;
+
+}
+</style>
+<body>
+<div class="image">
+
+<div class="transparentbox">
+	<img src="{% static 'images/lock1.jpg' %}" style="margin-left:40%;margin-top:3%;width:15%;height:50px">
+
+    <form method="post" action="">
+    {% csrf_token %}
+  <div class="form-group">
+
+    <input style="height:30px;margin-bottom:10px;width:90%" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="uname" placeholder="Enter Username">
+  </div>
+  <div class="form-group">
+
+    <input style="height:30px;margin-bottom:10px;width:90%" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="pwd">
+  </div>
+  <button style="height:30px;margin-bottom:10px;width:90%;background-color:red " type="submit" class="btn btn-danger" style="margin-top:2%" >SUBMIT</button>
+</form>
+
+</div>
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+{% extends 'admin_nav.html' %}
+{% load static %}
+{% block body %}
+
+
+<div style="background-color:DarkSlateGrey;padding:20px">
+        <table width="1000" align="center">
+    <tr><th style="color:white">Search Enquery</th>
+    </tr>
+</table>
+</div>
+<style>
+p{background-color:cyan ;
+padding:10px;
+color:white;
+text-align:center
+}
+
+input[type=text] ,input[type=date],input[type=file] ,input[type=password],input[type=email],select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: DarkSlateGray;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.container {
+margin-top:20px;
+  margin-bottom:20px;
+  width:1100px;
+  float:center;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 28px;
+
+
+
+}
+
+
+</style>
+<body>
+
+<div class="container">
+
+<table width="850">
+
+  <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+
+    <tr>
+    <th><label for="fname">Enquery Number</label>
+    <input type="text"  name="enquery" placeholder="Enquery Number"></th>
+    </tr>
+      <th>
+    <input type="submit" value="search">
+      </th>
+  </form>
+ </table>
+</div>
+{% if error %}
+
+ <div class="container">
+<table class="table table-bordered" id="myTable">
+  <thead>
+  <tr>
+    <th>Sr. No</th>
+    <th>Enquery Number</th>
+    <th>Full Name</th>
+    <th>Mobile No</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+   <tbody>
+
+{% for i in data %}
+
+  <tr>
+      <td>{{forloop.counter}}</td>
+    <td>{{i.enquery}}</td>
+    <td>{{i.user.username}}</td>
+    <td>{{i.contact}}</td>
+            <td><a href="{% url 'seen_enquery' i.id %}"><button class="button button1">View_detail</button></a>
+  </tr>
+
+   {% endfor %}
+
+    </tbody>
+</table>
+
+ </div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'admin_nav.html' %}
+{% block body %}
+
+<center><h2 style = "font-family : 'Monotype Corsiva' ; color : #E6120E ; font-weight : bold;margin-top:2%">View Enquiry Detail</h2></center><hr>
+<div class="container" style="margin-top:5%">
+</div>
+ <div class="container">
+<table class="table table-bordered" id="myTable">
+  <thead>
+  <tr>
+    <th>Sr. No</th>
+    <th>Enquiry Number</th>
+    <th>Full Name</th>
+    <th>Mobile No</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+   <tbody>
+
+{% for i in data %}
+{% ifequal i.status 'seen' %}
+  <tr>
+      <td>{{forloop.counter}}</td>
+    <td>{{i.enquery}}</td>
+    <td>{{i.user.username}}</td>
+    <td>{{i.contact}}</td>
+            <td><a href="{% url 'seen_enquery' i.id %}"><button class="button button1">View_detail</button></a>
+  </tr>
+{% endifequal %}
+   {% endfor %}
+
+    </tbody>
+</table>
+
+ </div>
+
+<script>
+            var el_up = document.getElementById("GFG_UP");
+
+            el_up.innerHTML =
+                "Click on the LINK for further confirmation.";
+</script>
+{% endblock %}

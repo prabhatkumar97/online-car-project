@@ -1,0 +1,99 @@
+{% extends 'admin_nav.html' %}
+{% load static %}
+{% block body %}
+{% if error %}
+<script>
+  alert('About Page Updated Successfully');
+</script>
+{% endif %}
+
+<div style="background-color:DarkSlateGrey;padding:20px">
+        <table width="1000" align="center">
+    <tr><th style="color:white;">Update About Page</th>
+    </tr>
+</table>
+</div>
+<style>
+p{background-color:cyan ;
+padding:10px;
+color:white;
+text-align:center
+}
+
+input[type=text] ,input[type=date],input[type=file] ,input[type=password],input[type=email],textarea,select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: DarkSlateGray;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.container {
+margin-top:20px;
+  margin-bottom:20px;
+  width:1100px;
+  float:center;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 28px;
+
+
+
+}
+
+
+</style>
+<body>
+
+<div class="container">
+
+<table width="850">
+
+  <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+
+    <tr>
+    <th><label for="fname">Title</label>
+    <input type="text"  name="title" placeholder="title"></th>
+    </tr>
+
+      <tr><th>
+          <label for="fname">Upload Image1</label>
+          <input type="file" name="img1">
+      </th>
+      </tr>
+      <tr><th>
+          <label for="fname">Upload Image2</label>
+          <input type="file" name="img2">
+      </th>
+      </tr>
+
+      <tr>
+      <th>
+          <label for="fname">Description</label>
+          <textarea name="des"></textarea>
+      </th>
+      </tr>
+      <tr>
+      <th>
+    <input type="submit" value="Submit">
+      </th>
+      </tr>
+  </form>
+ </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,213 @@
+{% extends 'admin_nav.html' %}
+{% load static %}
+{% block body %}
+
+{% if error %}
+<script>
+    alert('Added Car successfully');
+</script>
+{% endif %}
+
+<div style="background-color:DarkSlateGrey;padding:20px">
+        <table width="1000" align="center">
+    <tr><th style="color:white">ADD CAR DETAIL</th>
+    </tr>
+</table>
+</div>
+<style>
+p{background-color:cyan ;
+padding:10px;
+color:white;
+text-align:center
+}
+
+input[type=text] ,input[type=date],input[type=file] ,input[type=password],input[type=email],select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: DarkSlateGray;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.container {
+margin-top:20px;
+  margin-bottom:20px;
+  width:1100px;
+  float:center;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 28px;
+
+
+
+}
+
+
+</style>
+<body>
+
+<div class="container">
+
+<table width="850">
+
+  <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+
+    <tr>
+    <th><label for="fname">Car Name</label>
+    <input type="text"  name="carname" placeholder="Car name"></th>
+    <th><label for="lname">No of Gear</label>
+    <input type="text" name="noofgear" placeholder="User Last Name"></th>
+
+ </tr>
+ <tr>
+    <th><label for="Login ID">fixed car image</label>
+    <input type="file" id="loginid" name="img1" value="Choose img"></th>
+    <th><label for="password">Car image1</label>
+    <input type="file" name="img2" placeholder="Password"></th>
+ </tr>
+  <tr>
+    <th><label for="cpassword">Car image2</label>
+    <input type="file" name="img3" ></th>
+       <th><label for="cpassword">Car image3</label>
+    <input type="file"  name="img4" ></th>
+</tr>
+
+<tr>
+	<th><label for="gender">Air Condition</label><br><br>
+	<input type="radio" name="aircondition" value="yes"style="display: inline-block;margin-bottom:10px">yes
+	<input type="radio"  name="aircondition" value="no" style="display: inline-block;margin-bottom:10px">no</th>
+ 		<th><label for="gender">Car ABS</label><br><br>
+	<input type="radio" name="carabs" value="yes"style="display: inline-block;margin-bottom:10px">yes
+	<input type="radio"  name="carabs" value="no" style="display: inline-block;margin-bottom:10px">no</th>
+
+</tr>
+<tr>
+	<tr>
+    <th><label for="mobile">Car Type</label>
+    <input type="text"  name="cartype" placeholder=" Car Type"></th>
+    <th><label for="dob">Car Body Cover</label>
+    <input type="text" name="bodycover" placeholder="bodycover"></th>
+ </tr>
+ <tr>
+    <th><label for="address1">Car Model</label>
+    <input type="text" name="carmodel" placeholder="carmodel"></th>
+    <th><label for="address2">Car Body Type</label>
+    <input type="text"  name="bodytype" placeholder=" bodytype"></th>
+ </tr>
+<tr>
+    <th><label>Car Company</label>
+
+        <select name="brand">
+            {% for i in data %}
+            <option value="{{i.brand}}">{{i.brand}}</option>
+    {% endfor %}
+        </select></th>
+     <th><label for="user_state">Car Price</label>
+    <input type="text" id="user_state" name="carprice" placeholder="car price"></th></th>
+    </th>
+ </tr>
+<tr>
+     <th><label for="user_country">Car Number</label>
+         <input type="text" id="user_country" name="carnumber" placeholder="car number"></th>
+<th><label for="image">Car Length</label>
+    <input type="text" name="carlength" placeholder="car length "></th>
+    </tr>
+<tr>
+    <th><label for="address1">Car Width</label>
+    <input type="text" name="carwidth" placeholder="car width"></th>
+    <th><label for="address2">Car Height</label>
+    <input type="text"  name="carheight" placeholder=" car height"></th>
+ </tr>
+      <tr>
+    <th><label for="address1">Seating Capacity</label>
+    <input type="text" name="seatingcapacity" placeholder="seating capacity"></th>
+    <th><label for="address2">Fuel Type</label>
+    <input type="text"  name="fueltype" placeholder=" fuel type"></th>
+ </tr>
+      <tr>
+    <th><label for="address1">Displacement</label>
+    <input type="text" name="displacement" placeholder="displacement"></th>
+    <th><label for="address2">Maxpower</label>
+    <input type="text"  name="maxpower" placeholder=" maxpower"></th>
+ </tr>
+      <tr>
+    <th><label for="address1">Max Torque</label>
+    <input type="text" name="maxtorque" placeholder="max torque"></th>
+    <th><label for="address2">Car Milage</label>
+    <input type="text"  name="milage" placeholder=" milage"></th>
+ </tr>
+      <tr>
+    <th><label for="address1">Transmission Type</label>
+    <input type="text" name="transmissiontype" placeholder="transmission type"></th>
+    <th><label for="address2">Car Power Window/label>
+    <input type="text"  name="carpowerwindow" placeholder=" car power window"></th>
+ </tr>
+      <tr>
+    <th><label for="address1">Car Center Locking</label>
+    <input type="text" name="carcenterlocking" placeholder="car center locking"></th>
+    <th><label for="address2">Air Bags</label>
+    <input type="text"  name="airbags" placeholder=" airbags"></th>
+ </tr>
+      <tr>
+    <th><label for="address1">front type</label>
+    <input type="text" name="frontype" placeholder="front type"></th>
+    <th><label for="address2">Rear Type</label>
+    <input type="text"  name="reartype" placeholder=" rear type"></th>
+ </tr>
+      <tr>
+    <th><label for="address1">Last Updationdate</label>
+    <input type="text" name="lastupdationdate" placeholder="last updationdate"></th>
+    <th><label for="address2">Fuel Capacity</label>
+    <input type="text"  name="fuelcapacity" placeholder=" fuelcapacity"></th>
+ </tr>
+
+         <tr>
+    <th><label for="address1">Boot Space</label>
+    <input type="text" name="bootspace" placeholder="boot space"></th>
+    <th><label for="address2">Fog Lamps</label>
+    <input type="text"  name="foglamps" placeholder=" fog lamps"></th>
+ </tr>
+         <tr>
+    <th><label for="address1">Engine Display</label>
+    <input type="text" name="enginedisplay" placeholder="engine display"></th>
+             <th><label for="gender">Central Locking</label><br><br>
+	<input type="radio" name="centrallocking" value="yes"style="display: inline-block;margin-bottom:10px;margin-left:50px">yes
+	<input type="radio"  name="centrallocking" value="no" style="display: inline-block;margin-bottom:10px">no</th>
+ </tr>
+         <tr>
+
+              <th><label for="address1">Car Description</label>
+                  <textarea name="cardescription" placeholder="car description"></textarea>
+              </th>
+ </tr>
+
+      </table>
+
+    <input type="submit" value="Submit">
+  </form>
+
+</div>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends 'admin_nav.html' %}
+{% block body %}
+<div class="container-fluid">
+<div style="background-color:DarkSlateGrey;padding:20px">
+        <table width="1000" align="center">
+    <tr><th style="color:white">ADD CAR DETAIL</th>
+    </tr>
+</table>
+</div>
+<div class="container-fluid" style="width:90%;margin-top:4%">
+	<div class="col-md-6">
+			<div   style="margin-left:200px;border-radius:5px;background-color: #f2f2f2; padding: 20px;">
+  <form method="post" action="" >
+	  {% csrf_token %}
+    <label for="fname">First Name</label>
+    <input type="text"  name="name" value="{{data.user}}" readonly>
+
+    <label for="email">Email</label>
+    <input type="email" id="lname" name="email" value="{{data.user.email}}" readonly>
+	  <label for="lname">Mobile No</label>
+    <input type="number" id="lname" name="con" value="{{data.contact}}" readonly>
+	   <label for="lname">Enquery Number</label>
+    <input type="number" id="lname" name="con" value="{{data.enquery}}" readonly>
+
+	   <label for="lname">Enquery Date</label>
+    <input type="text" name="enquery_date" value="{{data.enquery_date}}" readonly>
+	   <label for="lname">status</label>
+    <input type="text" name="status" value="{{data.status}}" readonly>
+	   <label for="lname">Remark</label>
+    <input type="text" id="lname" name="remark" value="{{data.remark}}" >
+
+	    <label for="lname">Massage</label>
+	  <textarea name="msg" value="{{data.msg}}" >{{data.msg}}</textarea>
+    <input type="submit" value="Submit">
+  </form>
+</div>
+	<style>
+html{
+scroll-behavior:smooth;
+}
+
+
+/*scroll button start*/
+#scrollbtn
+{
+
+position:fixed;
+bottom:20px;
+right:40px;
+z-index:99;
+border:none;
+color:red;
+background:#00abff;
+padding:10px;
+border-radius:10px;
+}
+/*scroll button end*/
+</style>
+
+ <div class="scrolltop float-right">
+  <i class="fa fa-arrow-up" onclick="topFunction()" id="scrollbtn"></i>
+  </div>
+
+<script>
+  scrollbutton = document.getElementById("scrollbtn");
+  window.onscroll = function(){scrollFunction()};
+
+  function scrollFunction()
+  {
+  if(document.body.scrollTop>20 || document.documentElement.scrollTop>20)
+  {
+  scrollbutton.style.display="block";
+  }
+  else
+  {
+  scrollbutton.style.display="none";
+  }
+  }
+
+  function topFunction()
+  {
+  document.body.scrollTop = 0;//safari
+  document.documentElement.scrollTop = 0;//for chrome
+  }
+
+</script>
+
+		</div>
+	</div>
+ </div>
+
+      </div>
+
+
+
+
+
+{% endblock %}

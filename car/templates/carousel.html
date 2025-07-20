@@ -1,0 +1,55 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+  <div class="carousel-inner" style="width:1550px;height:500px">
+    <div class="carousel-item active">
+      <img src="{% static 'images/car.jpg' %}" style="height:500px">
+    </div>
+  </div>
+
+<h4><center style="margin-top:10px"> All Type Cars</center></h4>
+
+<div class="container-fluid" style="width:70%;margin-top:5%">
+
+<form method="post" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="inputEmail4">Select Company</label>
+        <select name="brand"  class="form-control" style="height:50px">
+     {% for i in data2 %}
+            <option value="{{i.brand}}" >{{i.brand}}</option>
+            {% endfor %}
+        </select>
+    </div>
+   <div class="form-group col-md-3">
+      <label for="inputEmail4">Select Model</label>
+        <select name="carmodel"  class="form-control" style="height:50px">
+     {% for i in data2 %}
+            <option value="{{i.carmodel}}" >{{i.carmodel}}</option>
+            {% endfor %}
+        </select>
+    </div>
+   <div class="form-group col-md-3">
+      <label for="inputEmail4">Car Type</label>
+        <select name="cartype"  class="form-control" style="height:50px">
+     {% for i in data2 %}
+            <option value="{{i.cartype}}" >{{i.cartype}}</option>
+            {% endfor %}
+        </select>
+    </div>
+       <div class="form-group col-md-3">
+        <button type="search" class="btn btn-primary" style="margin-top:30px;background-color:red;width:150px;height:50px">Submit</button>
+    </div>
+    </div>
+</form>
+
+
+{% block b %}
+{% endblock %}
+
+
+
+{% endblock %}
+</div>
